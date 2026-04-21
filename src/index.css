@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+
+.marquee {
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 48px;
+  width: max-content;
+  animation: scroll 15s linear infinite;
+}
+
+/* ✅ Pause everything on hover */
+.marquee:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* Base item */
+.marquee-item {
+  white-space: nowrap;
+}
+
+/* 🔥 Phone hover */
+.highlight-phone {
+  color: #15803d;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.highlight-phone:hover {
+  color: #f59e0b; /* yellow */
+}
+
+/* 🔥 Email hover */
+.highlight-email {
+  color: #15803d;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.highlight-email:hover {
+  color: #f59e0b;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+.writing-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+ul.list-square {
+  list-style-type: square;
+}
+
+.loader {
+  width: 64px;
+  height: 64px;
+  position: relative;
+  background-image:
+    linear-gradient(#ffffff 16px, transparent 0),
+    linear-gradient(#16a34a 16px, transparent 0),
+    linear-gradient(#16a34a 16px, transparent 0),
+    linear-gradient(#ffffff 16px, transparent 0);
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-position: left top, left bottom, right top, right bottom;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    width: 64px;
+    height: 64px;
+    transform: rotate(0deg);
+  }
+  50% {
+    width: 30px;
+    height: 30px;
+    transform: rotate(180deg);
+  }
+  100% {
+    width: 64px;
+    height: 64px;
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 640px) {
+  .marquee-content {
+    gap: 80px;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
